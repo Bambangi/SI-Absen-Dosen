@@ -73,11 +73,11 @@
 
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar bg-white elevation-4">
       <!-- Brand Logo -->
       <a href="index3.html" class="brand-link">
         <!-- <img src="{{ url('dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-        <h4 class="brand-text text-center pt-2" style="font-size: 22px;">SI Laporan Dosen</h4>
+        <h4 class="brand-text text-center pt-2" style="font-size: 24px;">SI Laporan Dosen</h4>
       </a>
 
       <!-- Sidebar -->
@@ -88,16 +88,16 @@
             <img src="{{ url('img/man.png') }}" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">Admin</a>
+            <a href="#" class="d-block text-decoration-none text-info">Admin</a>
           </div>
         </div>
 
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
-            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control bg-dark border-light" type="search" placeholder="Search" aria-label="Search">
             <div class="input-group-append">
-              <button class="btn btn-sidebar">
+              <button class="btn btn-dark">
                 <i class="fas fa-search fa-fw"></i>
               </button>
             </div>
@@ -114,6 +114,13 @@
               <a href="{{ url('dashboard') }}" class="nav-link">
                 <i class="nav-icon fas fa-book"></i>
                 <p>Dashboard</p>
+              </a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="{{ url('report') }}" class="nav-link">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Laporan</p>
               </a>
             </li>
 

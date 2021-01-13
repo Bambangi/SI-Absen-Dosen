@@ -15,8 +15,8 @@ class CreateMatkulTable extends Migration
     {
         Schema::create('tb_matkul', function (Blueprint $table) {
             $table->bigIncrements('ID');
-            $table->char('KODE_MK', 5)->unique();
-            $table->string('NAMA', 30)->unique();
+            $table->char('KODE_MK', 6)->unique();
+            $table->string('NAMA', 100)->unique();
             $table->timestamps();
         });
     }

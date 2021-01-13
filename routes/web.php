@@ -30,6 +30,14 @@ Route::get('/matkul/edit/{id}', 'MatkulController@edit');
 Route::post('/matkul/update/{id}', 'MatkulController@update');
 Route::get('/matkul/delete/{id}', 'MatkulController@destroy');
 
+// REPORTATTENDANCE
+Route::get('/report', 'ReportAttendanceController@index');
+Route::get('/report/create', 'ReportAttendanceController@create');
+Route::post('/report/store', 'ReportAttendanceController@store');
+Route::get('/report/edit/{id}', 'ReportAttendanceController@edit');
+Route::post('/report/update/{id}', 'ReportAttendanceController@update');
+Route::get('/report/delete/{id}', 'ReportAttendanceController@destroy');
+
 // LOGIN
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index');

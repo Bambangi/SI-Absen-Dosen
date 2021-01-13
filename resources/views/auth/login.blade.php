@@ -41,12 +41,15 @@
                             <label class="form-check-label" for="remember">Remember me</label>
                         </div>
 
-                            
-                        <button type="submit" class="btn btn-primary mt-3">Login</button>
+                        
+                        <button type="submit" class="btn btn-primary mt-3 btn-block">Login</button>
 
                         @if (Route::has('password.request'))
                             <a class="btn text-white btn-warning mt-3" href="{{ route('password.request') }}">Lupa Password</a>
                         @endif
+
+                        <a href="{{ route('register') }}" class="btn btn-dark mt-3">Registrasi</a>
+
                     </form>
                 </div>
             </div>

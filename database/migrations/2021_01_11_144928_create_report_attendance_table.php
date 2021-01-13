@@ -10,14 +10,13 @@ class CreateReportAttendanceTable extends Migration
     {
         Schema::create('tb_report_attendance', function (Blueprint $table) {
             $table->bigIncrements('ID');
-            $table->string('PRODI', 30);
+            $table->bigInteger('PRODI');
             $table->string('SEMESTER', 20);
-            // $table->integer('PERTEMUAN', 2);
+            $table->integer('PERTEMUAN', 2);
             $table->date('TGL');
             $table->time('JAM');
-            $table->string('MATKUL', 100);
-            $table->char('KODE_MK', 6);
-            $table->string('DOSEN', 50);
+            $table->bigInteger('MATKUL');
+            $table->bigInteger('DOSEN');
             $table->string('PEMBAHASAN');
             $table->timestamps();
         });

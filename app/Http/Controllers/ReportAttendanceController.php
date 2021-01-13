@@ -12,57 +12,60 @@ class ReportAttendanceController extends Controller
 {
     public function index()
     {
-        $report = ReportAttendance::all();
+        $laporan = ReportAttendance::all();
         $dosen = Dosen::all();
         $matkul = Matkul::all();
         $prodi = Prodi::all();
-        return view('dashboard', compact('report', 'dosen', 'matkul', 'prodi'));
+        return view('report.index', compact('laporan', 'dosen', 'matkul', 'prodi'));
     }
 
     public function create()
     {
-        $report = ReportAttendance::all();
+        $laporan = ReportAttendance::all();
         $dosen = Dosen::all();
         $matkul = Matkul::all();
         $prodi = Prodi::all();
-        return view('report.create', compact('report', 'dosen', 'matkul', 'prodi'));
+        return view('report.create', compact('laporan', 'dosen', 'matkul', 'prodi'));
     }
 
     public function store(Request $request)
     {
         ReportAttendance::create($request->all());
         $saveState = "Report Berhasil ditambahkan!";
-        return redirect('report')->with('doneSave');
+        return redirect('report')->with('doneSave', $saveState);
     }
 
-    public function show(ReportAttendance $report){}
+    public function show(ReportAttendance $laporan){}
 
     public function edit($id)
     {
-        $report = ReportAttendance::find($id);
-        return view('report.edit', compact('report'));
+        $laporan = ReportAttendance::find($id);
+        $dosen = Dosen::all();
+        $matkul = Matkul::all();
+        $prodi = Prodi::all();
+        return view('report.edit', compact('laporan', 'dosen', 'matkul', 'prodi'));
     }
 
     public function update(Request $request, $id)
     {
-        $report = ReportAttendance::find($id);
-        $report->PRODI     = $request->PRODI;
-        $report->SEMESTER  = $request->SEMESTER;
-        $report->TGL       = $request->TGL;
-        $report->JAM       = $request->JAM;
-        $report->MATKUL    = $request->MATKUL;
-        $report->KODE_MK   = $request->KODE_MK;
-        $report->DOSEN     = $request->DOSEN;
-        $report->PEMBAHASAN  = $request->PEMBAHASAN;
-        $report->save();
+        $laporan = ReportAttendance::find($id);
+        $laporan->PRODI     = $request->PRODI;
+        $laporan->SEMESTER  = $request->SEMESTER;
+        $laporan->PERTEMUAN = $request->PERTEMUAN;
+        $laporan->TGL       = $request->TGL;
+        $laporan->JAM       = $request->JAM;
+        $laporan->MATKUL    = $request->MATKUL;
+        $laporan->DOSEN     = $request->DOSEN;
+        $laporan->PEMBAHASAN  = $request->PEMBAHASAN;
+        $laporan->save();
         $editState = "Report Berhasil Diedit!";
         return redirect('report')->with('doneEdit', $editState);
     }
 
     public function destroy(Request $request, $id)
     {
-        $report = ReportAttendance::find($id);
-        $report->delete();
+        $laporan = ReportAttendance::find($id);
+        $laporan->delete();
         $deleteState = "Report Berhasil dihapus!";
         return redirect('report')->with('doneDelete', $deleteState);
     }

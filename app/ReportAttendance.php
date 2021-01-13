@@ -13,24 +13,26 @@ class ReportAttendance extends Model
         'SEMESTER', 
         'PERTEMUAN', 
         'TGL',
+        'JAM',
         'MATKUL',
-        'KODE_MK',
         'DOSEN',
         'PEMBAHASAN'
     ];
 
+
     public function dosen()
     {
-        return $this->hasOne(Dosen::class);
+        // ('namaObjek','fk tabel')
+        return $this->belongsTo('App\Dosen', 'DOSEN');
     }
 
     public function matkul()
     {
-        return $this->hasOne(Matkul::class);
+        return $this->belongsTo('App\Matkul', 'MATKUL');
     }
 
     public function prodi()
     {
-        return $this->hasOne(Prodi::class);
+        return $this->belongsTo('App\Prodi', 'MATKUL');
     }
 }
